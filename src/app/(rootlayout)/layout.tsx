@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Home/Navbar";
 
 export const metadata: Metadata = {
   title: "Movie World",
@@ -11,10 +10,5 @@ export default function HomeLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <Navbar />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

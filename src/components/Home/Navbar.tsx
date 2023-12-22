@@ -1,8 +1,8 @@
-import userIcon from "@/assets/userIcon.png";
+import userIcon from "../../../public/assets/userIcon.png";
 import Image from "next/image";
 const Navbar = () => {
   return (
-    <nav className="bg-gray-500">
+    <nav className="bg-transparent">
       <div className="max-w-[1200px] mx-auto">
         <div className="flex justify-between items-center py-4">
           <div>
