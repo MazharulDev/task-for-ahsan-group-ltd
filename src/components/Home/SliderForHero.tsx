@@ -32,8 +32,8 @@ const SliderForHero = () => {
         height={600}
         alt="Movie poster"
       />
-      <div className="flex justify-center mt-[-20px]">
-        <button className="bg-gradient-to-r from-[#0392F3] to-[#2E1DBC] bg-gray-400 p-2 rounded-3xl absolute">
+      <div className="flex justify-center mt-[-20px] hover:scale-105 duration-100 shadow-lg">
+        <button className="bg-gradient-to-r from-[#0392F3] to-[#2E1DBC] bg-gray-400 p-2 rounded-3xl absolute ">
           WATCH NOW
         </button>
       </div>

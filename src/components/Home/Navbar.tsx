@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
-import userIcon from "../../../public/assets/userIcon.png";
-import Image from "next/image";
+import { getUserInfo } from "@/services/auth.service";
+import Link from "next/link";
+import { UserOutlined } from "@ant-design/icons";
 const Navbar = () => {
+  const { role, userId } = getUserInfo() as any;
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <nav className="bg-transparent">
@@ -67,13 +69,20 @@ const Navbar = () => {
               </option>
               <option value="bn">BN</option>
             </select>
-            <Image
-              className="cursor-pointer"
-              src={userIcon}
-              width={20}
-              height={20}
-              alt="icon"
-            />
+            <div>
+              {role === "user" ? (
+                <div className="cursor-pointer">
+                  <UserOutlined />
+                </div>
+              ) : (
+                <Link href="/login">
+                  <a className="bg-gradient-to-r from-[#0392F3] to-[#2E1DBC] p-2 rounded-3xl">
+                    Login
+                  </a>
+                </Link>
+              )}
+              {/* <UserOutlined /> */}
+            </div>
           </div>
           <div
             className="lg:hidden text-3xl"
