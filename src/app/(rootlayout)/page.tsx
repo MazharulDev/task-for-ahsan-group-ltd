@@ -3,6 +3,7 @@ import Navbar from "@/components/Home/Navbar";
 import UpcomingMovieSection from "@/components/Home/UpcomingMovieSection";
 
 const RootPage = () => {
+  const slider = [""];
   return (
     <div>
       <div

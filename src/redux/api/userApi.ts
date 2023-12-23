@@ -27,6 +27,13 @@ export const userApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.user],
     }),
+    user: build.query({
+      query: (email: string | string[] | undefined) => ({
+        url: `${USER_URL}/${email}`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.user],
+    }),
   }),
 });
 
@@ -34,4 +41,5 @@ export const {
   useDeleteUserMutation,
   useUserByIdQuery,
   useUserSignupMutation,
+  useUserQuery,
 } = userApi;

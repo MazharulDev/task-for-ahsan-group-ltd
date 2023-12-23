@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import Form from "../forms/Form";
 import Link from "next/link";
 import { useUserSignupMutation } from "@/redux/api/userApi";
+import { storeUserInfo } from "@/services/auth.service";
 
 type FormValues = {
   name: string;
@@ -26,7 +27,7 @@ const SignUp = () => {
       const res = await userSignup({ ...data }).unwrap();
       if (res?._id) {
         router.push("/login");
-        message.success("Account Created successfully, Please login");
+        message.success("Account Created successfully");
       }
     } catch (error) {
       console.error(error);
@@ -102,7 +103,10 @@ const SignUp = () => {
           </Form>
           <div style={{ marginTop: "10px" }}>
             <p>
-              Already have an account? <Link href="/login">Login</Link>
+              Already have an account?{" "}
+              <Link className="text-blue-500" href="/login">
+                Login
+              </Link>
             </p>
           </div>
         </div>

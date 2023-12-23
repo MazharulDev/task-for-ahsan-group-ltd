@@ -1,23 +1,31 @@
 "use client";
 import { useState } from "react";
-import { getUserInfo } from "@/services/auth.service";
+import { getUserInfo, removeUserInfo } from "@/services/auth.service";
 import Link from "next/link";
 import { UserOutlined } from "@ant-design/icons";
+import { authkey } from "@/constants/storageKey";
+import { useRouter } from "next/navigation";
+
 const Navbar = () => {
+  const router = useRouter();
   const { role, userId } = getUserInfo() as any;
   const [openMenu, setOpenMenu] = useState(false);
+  const logOut = () => {
+    removeUserInfo(authkey);
+    router.push("/login");
+  };
   return (
     <nav className="bg-transparent">
       <div className="max-w-[1200px] mx-auto">
         <div className="flex justify-between items-center py-4 px-3">
-          <div className="mr-2">
+          <Link href="/" className="mr-2 cursor-pointer">
             <h4 className="font-bold text-xl md:text-2xl bg-gradient-to-r from-[#0392F3] to-[#2E1DBC] text-transparent bg-clip-text uppercase ">
               Movie
             </h4>
             <p className="ml-10  md:ml-14 text-white font-thin leading-3">
               World
             </p>
-          </div>
+          </Link>
           <div className="hidden md:block">
             <div className="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
               <div className="md:flex">
@@ -37,7 +45,7 @@ const Navbar = () => {
                     </div>
                     <input
                       type="text"
-                      className="bg-white h-8 w-full px-10 rounded-lg focus:outline-none "
+                      className="bg-white text-black h-8 w-full px-10 rounded-lg focus:outline-none "
                       placeholder="Search movies"
                     />
                     <span className="absolute top-1 right-1 pl-4">
@@ -60,9 +68,15 @@ const Navbar = () => {
               openMenu ? "flex text-white" : "hidden"
             }`}
           >
-            <p className="text-[#FFD21A]">Get Pro</p>
-            <p className="hover:text-gray-100 cursor-pointer">Movies</p>
-            <p className="hover:text-gray-100 cursor-pointer">Watch-list</p>
+            <Link href="/" className="text-[#FFD21A]">
+              Get Pro
+            </Link>
+            <Link href="/" className="hover:text-gray-100 cursor-pointer">
+              Movies
+            </Link>
+            <Link href="/" className="hover:text-gray-100 cursor-pointer">
+              Watch-list
+            </Link>
             <select className="border-none bg-gradient-to-r from-[#0392F3] to-[#2E1DBC] bg-gray-400 p-2 rounded-3xl  outline-none">
               <option selected value="en">
                 EN
@@ -71,17 +85,28 @@ const Navbar = () => {
             </select>
             <div>
               {role === "user" ? (
-                <div className="cursor-pointer">
-                  <UserOutlined />
-                </div>
+                <>
+                  <div className="flex items-center gap-3">
+                    <Link href="/profile" className="cursor-pointer mb-1">
+                      <UserOutlined />
+                    </Link>
+                    <a
+                      onClick={logOut}
+                      className="text-red-500 cursor-pointer hover:scale-105 duration-100"
+                    >
+                      Logout
+                    </a>
+                  </div>
+                </>
               ) : (
-                <Link href="/login">
-                  <a className="bg-gradient-to-r from-[#0392F3] to-[#2E1DBC] p-2 rounded-3xl">
-                    Login
-                  </a>
-                </Link>
+                <>
+                  <Link href="/login">
+                    <a className="bg-gradient-to-r from-[#0392F3] to-[#2E1DBC] p-2 rounded-3xl">
+                      Login
+                    </a>
+                  </Link>
+                </>
               )}
-              {/* <UserOutlined /> */}
             </div>
           </div>
           <div

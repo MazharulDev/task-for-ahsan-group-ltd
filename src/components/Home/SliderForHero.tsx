@@ -6,25 +6,23 @@ import rightarrow from "../../../public/assets/rightarrow.png";
 const SliderForHero = () => {
   return (
     <div className="relative">
-      {/* <div className="absolute ">
-        <div className="flex justify-between items-center">
-          <Image
-            className="bg-white p-2 rounded-md"
-            src={leftarrow}
-            width={40}
-            height={40}
-            alt="left arrow"
-          />
+      <div className="absolute inset-0 flex items-center justify-between ">
+        <Image
+          className="bg-white p-2 rounded-md ml-[-15px] cursor-pointer"
+          src={leftarrow}
+          width={40}
+          height={40}
+          alt="left arrow"
+        />
 
-          <Image
-            className="bg-white p-2 rounded-md"
-            src={rightarrow}
-            width={40}
-            height={40}
-            alt="right arrow"
-          />
-        </div>
-      </div> */}
+        <Image
+          className="bg-white p-2 rounded-md mr-[-15px] cursor-pointer"
+          src={rightarrow}
+          width={40}
+          height={40}
+          alt="right arrow"
+        />
+      </div>
       <Image
         className="rounded-lg"
         src={heroPoster}
