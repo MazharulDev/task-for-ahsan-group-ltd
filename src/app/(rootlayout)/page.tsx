@@ -1,5 +1,6 @@
 import HeroSection from "@/components/Home/HeroSection";
 import Navbar from "@/components/Home/Navbar";
+import UpcomingMovieSection from "@/components/Home/UpcomingMovieSection";
 
 const RootPage = () => {
   return (
@@ -17,6 +18,7 @@ const RootPage = () => {
           <HeroSection />
         </div>
       </div>
+      <UpcomingMovieSection />
     </div>
   );
 };

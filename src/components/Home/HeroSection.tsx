@@ -3,9 +3,9 @@ import SliderForHero from "./SliderForHero";
 const HeroSection = () => {
   return (
     <div className="max-w-[1200px] mx-auto">
-      <div className="md:grid grid-cols-2 items-center place-items-center py-14">
+      <div className="p-5 md:grid grid-cols-2 items-center place-items-center py-14">
         <div>
-          <h1 className="text-6xl text-[#0399FA] font-bold uppercase mb-5">
+          <h1 className="text-4xl md:text-6xl text-[#0399FA] font-bold uppercase mb-5">
             Best way of entertainment
           </h1>
           <h3 className="text-2xl font-bold uppercase">
