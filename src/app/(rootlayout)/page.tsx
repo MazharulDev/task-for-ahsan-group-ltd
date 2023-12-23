@@ -1,9 +1,15 @@
 import HeroSection from "@/components/Home/HeroSection";
+import MyAddedMovie from "@/components/Home/MyAddedMovie";
 import Navbar from "@/components/Home/Navbar";
 import UpcomingMovieSection from "@/components/Home/UpcomingMovieSection";
+import Image from "next/image";
 
 const RootPage = () => {
-  const slider = [""];
+  // const slides = [
+  //   "https://i.ibb.co/CJRWWp9/captain-marvel.webp",
+  //   "https://i.ibb.co/hKZHTD9/seven.jpg",
+  //   "https://i.ibb.co/jR238rr/aladin.jpg",
+  // ];
   return (
     <div>
       <div
@@ -16,10 +22,12 @@ const RootPage = () => {
       >
         <div className="w-full bg-black opacity-80 text-white">
           <Navbar />
+
           <HeroSection />
         </div>
       </div>
       <UpcomingMovieSection />
+      <MyAddedMovie />
     </div>
   );
 };

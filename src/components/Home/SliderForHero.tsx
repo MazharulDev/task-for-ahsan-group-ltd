@@ -24,7 +24,7 @@ const SliderForHero = () => {
         />
       </div>
       <Image
-        className="rounded-lg"
+        className="rounded-lg flex"
         src={heroPoster}
         width={250}
         height={600}
